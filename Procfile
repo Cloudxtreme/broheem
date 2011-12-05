@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n ircbot
+app: bin/hubot -a irc -n broheem
