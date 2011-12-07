@@ -11,19 +11,19 @@ env = process.env
   
 module.exports = (robot) ->
   if env.HUBOT_SENDGRID_USER and env.HUBOT_SENDGRID_KEY
-    robot.respond /(sendgrid)( me)? today/i, (msg) ->
+    robot.hear /(sendgrid)( me)? today/i, (msg) ->
       opts =
         days: 0
       query msg, opts, (json) ->
         msg.send formatResponse(json[0])
 
-    robot.respond /(sendgrid)( me)? total/i, (msg) ->
+    robot.hear /(sendgrid)( me)? total/i, (msg) ->
       opts =
         aggregate: 1
       query msg, opts, (json) ->
         msg.send formatResponse(json)
 
-    robot.respond /(sendgrid)( me)? c(ategory)? (.*)/i, (msg) ->
+    robot.hear /(sendgrid)( me)? c(ategory)? (.*)/i, (msg) ->
       category = msg.match[4]
       msg.send "Category: #{category}"
       opts =
