@@ -1,7 +1,7 @@
 Broheem
 =====
 
-This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
+This is a version of GitHub's Campfire bot, hubot. He's pretty cool. Really cool!
 
 This version is designed to be deployed on heroku.
 
