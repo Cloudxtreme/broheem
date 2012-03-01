@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n broheem
+app: bin/hubot -a campfire -n Hubot
