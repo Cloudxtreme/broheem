@@ -6,9 +6,16 @@
 # help <query> - Displays all help commands that match <query>.
 
 module.exports = (robot) ->
-  robot.hear /help\s*(.*)?$/i, (msg) ->
+  robot.respond /help\s*(.*)?$/i, (msg) ->
     cmds = robot.helpCommands()
-    if msg.match[1]
-      cmds = cmds.filter (cmd) -> cmd.match(new RegExp(msg.match[1]))
-    msg.send cmds.join("\n")
 
+    if msg.match[1]
+      cmds = cmds.filter (cmd) ->
+        cmd.match new RegExp(msg.match[1], 'i')
+
+    emit = cmds.join "\n"
+
+    unless robot.name.toLowerCase() is 'hubot'
+      emit = emit.replace /hubot/ig, robot.name
+
+    msg.send emit
